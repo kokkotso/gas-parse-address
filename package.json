@@ -1,0 +1,24 @@
+{
+  "name": "gas-parse-address",
+  "version": "1.0.0",
+  "description": "This is a Google Apps Script project that utilizes Google Maps and Places API to parse an address in a Google sheet and return individual address components in the appropriate columns.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kokkotso/gas-parse-address.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kokkotso/gas-parse-address/issues"
+  },
+  "homepage": "https://github.com/kokkotso/gas-parse-address#readme",
+  "devDependencies": {
+    "gas-webpack-plugin": "^2.0.1",
+    "webpack": "^5.37.1"
+  }
+}
