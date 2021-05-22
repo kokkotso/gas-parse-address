@@ -24,9 +24,6 @@ export function callApi(address) {
 
         const id = searchData.candidates[0].place_id;
         console.log(id);
-        /* const detailsResponse = UrlFetchApp.fetch(`https://maps.googleapis.com/maps/api/place/details/json?key=${apiKey}&place_id=${id}&fields=address_component`, {contentType: "application/json"});
-        const detailsData = JSON.parse(detailsResponse.getContentText()).result.address_components;
-        console.log(detailsData); */
         const geoResponse = UrlFetchApp.fetch(`https://maps.googleapis.com/maps/api/geocode/json?key=${apiKey}&place_id=${id}`, {contentType: "application/json"});
         console.log(geoResponse.getResponseCode());
 
