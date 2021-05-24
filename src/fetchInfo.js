@@ -12,6 +12,23 @@ export function fetchInfo(address) {
     const encodedAddress = encodeURIComponent(address.toLowerCase());
     console.log(encodedAddress);
 
+    // check cache
+    const cache = CacheService.getDocumentCache();
+    const cachedValue = cache.get(encodedAddress);
+
+    if (cachedValue === null) {
+        const locationDetails = callApis();
+
+        // save result to cache
+        cache.put(encodedAddress, JSON.stringify(locationDetails));
+        console.log(cache.get(encodedAddress));
+        return locationDetails;
+    } else {
+        console.log("accessing cache");
+        const locationDetails = JSON.parse(cache.get(encodedAddress));
+        return locationDetails;
+    }
+
     function callApis() {
         const searchResponse = UrlFetchApp.fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=${apiKey}&input=${encodedAddress}&inputtype=textquery&fields=place_id`, {contentType: "application/json"});
         console.log(searchResponse.getResponseCode());
@@ -47,6 +64,4 @@ export function fetchInfo(address) {
 
         return locObj;
     }
-
-    return callApis();
 }
