@@ -1,30 +1,30 @@
-import { callApi } from './callApi.js';
+import { fetchInfo } from './fetchInfo.js';
 
 export function fetchStreet(address) {
-    return callApi(address).street;
+    return fetchInfo(address).street;
 }
 
 export function fetchCity(address) {
-    return callApi(address).city;
+    return fetchInfo(address).city;
 }
 
 export function fetchState(address) {
-    return callApi(address).state;
+    return fetchInfo(address).state;
 }
 
 export function fetchCountry(address) {
-    return callApi(address).country;
+    return fetchInfo(address).country;
 }
 
 export function fetchCode(address) {
-    return callApi(address).code;
+    return fetchInfo(address).code;
 }
 
 export function fetchLat(address) {
-    return callApi(address).lat;
+    return fetchInfo(address).lat;
 }
 
 export function fetchLong(address) {
-    return callApi(address).long;
+    return fetchInfo(address).long;
 }
 

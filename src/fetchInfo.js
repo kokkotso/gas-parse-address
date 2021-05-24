@@ -1,14 +1,14 @@
-import { secrets } from '../src/secrets.js';
+import { secrets } from './secrets.js';
 
 const apiKey = secrets.apiKey;
 
-export function callApi(address) {
-    // check input
+export function fetchInfo(address) {
+    // validate input
     if (typeof address !== "string" || !address) {
         throw new Error('Invalid address')
     }
 
-    function fetchInfo() {
+    function callApis() {
         const encodedAddress = encodeURIComponent(address);
         console.log(encodedAddress);
         const searchResponse = UrlFetchApp.fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=${apiKey}&input=${encodedAddress}&inputtype=textquery&fields=place_id`, {contentType: "application/json"});
@@ -46,5 +46,5 @@ export function callApi(address) {
         return locObj;
     }
 
-    return fetchInfo();
+    return callApis();
 }
