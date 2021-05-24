@@ -1,9 +1,9 @@
 import { fetchStreet, fetchCity, fetchState, fetchCountry, fetchCode, fetchLat, fetchLong } from "../src/functions"
 
-global.fetchStreet = fetchStreet;
-global.fetchCity = fetchCity;
-global.fetchState = fetchState;
-global.fetchCountry = fetchCountry;
-global.fetchCode = fetchCode;
-global.fetchLat = fetchLat;
-global.fetchLong = fetchLong;
+global.FETCHSTREET = fetchStreet;
+global.FETCHCITY = fetchCity;
+global.FETCHSTATE = fetchState;
+global.FETCHCOUNTRY = fetchCountry;
+global.FETCHCODE = fetchCode;
+global.FETCHLAT = fetchLat;
+global.FETCHLONG = fetchLong;
