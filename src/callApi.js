@@ -9,7 +9,9 @@ export function callApi(address) {
     }
 
     function fetchInfo() {
-        const searchResponse = UrlFetchApp.fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=${apiKey}&input=${address}&inputtype=textquery&fields=place_id`, {contentType: "application/json"});
+        const encodedAddress = encodeURIComponent(address);
+        console.log(encodedAddress);
+        const searchResponse = UrlFetchApp.fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=${apiKey}&input=${encodedAddress}&inputtype=textquery&fields=place_id`, {contentType: "application/json"});
         console.log(searchResponse.getResponseCode());
         const searchData = JSON.parse(searchResponse.getContentText());
         console.log(searchData);
