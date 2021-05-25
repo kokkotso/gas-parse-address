@@ -59,17 +59,6 @@ export function callApis(encodedAddress) {
         street: geoData.formatted_address.slice(0, geoData.formatted_address.indexOf(","))
     };
 
-    /* const locObj = {
-        formattedAddress: geoData.formatted_address,
-        lat: geoData.geometry.location.lat,
-        long: geoData.geometry.location.lng,
-        code: geoData.address_components.find(component => component.types.includes("postal_code")).long_name,
-        country: geoData.address_components.find(component => component.types.includes("country")).long_name,
-        state: geoData.address_components.find(component => component.types.includes("administrative_area_level_1")).long_name || geoData.address_components.find(component => component.types.includes("administrative_area_level_2")).long_name || geoData.address_components.find(component => component.types.includes("administrative_area_level_3")).long_name || geoData.address_components.find(component => component.types.includes("administrative_area_level_4")).long_name || geoData.address_components.find(component => component.types.includes("administrative_area_level_5")).long_name,
-        city: geoData.address_components.find(component => component.types.includes("locality")).long_name,
-        street: geoData.formatted_address.slice(0, geoData.formatted_address.indexOf(","))
-    } */
-
     console.log(locObj);
 
     return locObj;
