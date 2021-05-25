@@ -35,12 +35,26 @@ export function callApis(encodedAddress) {
         }
     }
 
+    function multiSearchComponents(terms) {
+        for (let i = 0; i < terms.length; i++) {
+            const term = terms[i];
+            const result = addressComponents.find(component => component.types.includes(term));
+
+            if (result) {
+                return result.long_name;
+            }
+        }
+
+        return "missing data"
+    }
+
     const locObj = {
         formattedAddress: geoData.formatted_address,
         lat: geoData.geometry.location.lat,
         long: geoData.geometry.location.lng,
         code: searchComponents("postal_code"),
         country: searchComponents("country"),
+        state: multiSearchComponents(["administrative_area_level_1", "administrative_area_level_2", "administrative_area_level_3", "administrative_area_level_4", "administrative_area_level_5"]),
         city: searchComponents("locality"),
         street: geoData.formatted_address.slice(0, geoData.formatted_address.indexOf(","))
     };
